@@ -11,6 +11,9 @@ export default {
         fontSecondary: '#A604F2',
         White: '#ffffff',
       },
+      fontFamily: {
+        Inter: ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [],
