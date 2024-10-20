@@ -1,3 +1,3 @@
 import Rocket from './Rocket.svg';
-
-export { Rocket };
+import Austonut from './Astronaut.png';
+export { Rocket, Austonut };
