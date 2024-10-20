@@ -25,8 +25,8 @@ const Hero = () => {
   };
 
   return (
-    <section className='max-w-[1256px] mx-auto w-full h-[576px] pl-[60px] pr-[184px] py-[20px]'>
-      <div className='w-full  h-[536px]'>
+    <section className='max-w-[1256px] mx-auto box-border w-full h-[576px] pl-[60px] pr-[184px] py-[20px] bg-white bg-opacity-[0.04] rounded-[20px]'>
+      <div className='w-full  h-[536px] flex justify-between'>
         {/* left side  */}
         <div className='max-w-[426px] min-w-[100px] w-full h-full flex flex-col justify-between py-[40px]'>
           {/* top div  */}
@@ -58,9 +58,12 @@ const Hero = () => {
               <input
                 type='text'
                 placeholder='First Name'
-                {...register('FirstName', { required: true })}
+                {...register('FirstName', { required: 'First Name is requed' })}
                 className='pl-[14px] text-white max-w-[206px] w-full opacity-60 h-[42px] bg-white bg-opacity-5 rounded-[5px] border border-white border-opacity-20'
               />
+              {errors.FirstName && (
+                <p className='text-white'>Fist Name is requed</p>
+              )}
             </div>
             <input
               type='text'
@@ -84,18 +87,33 @@ const Hero = () => {
               placeholder='Phone Number'
               className='pl-[14px]  text-white  opacity-60 h-[42px] w-full bg-white bg-opacity-5 rounded-[5px] border border-white border-opacity-20'
               {...register('PhoneNumber', {
-                required: { value: true },
+                required: 'Phone Number is required ',
+                maxLength: {
+                  value: 9,
+                  message: 'number is to large',
+                },
+                minLength: {
+                  value: 9,
+                  message: 'number is to short',
+                },
               })}
             />
 
+            {errors.PhoneNumber && (
+              <p className='text-white'>{errors.PhoneNumber.message}</p>
+            )}
             <textarea
-              type='number'
+              maxLength={200}
+              type='text'
               placeholder='Message'
               {...register('Message', {
-                required: { value: true },
+                required: true,
               })}
               className='pl-[14px] pt-[14px]  text-white text-start  opacity-60 h-[109px] w-full bg-white bg-opacity-5 rounded-[5px] border border-white border-opacity-20'
             />
+            {errors.Message && (
+              <p className='text-white'>{errors.Message.message}</p>
+            )}
 
             <button
               type='submit'
@@ -109,6 +127,17 @@ const Hero = () => {
               />
             </button>
           </form>
+        </div>
+        {/* Right Side */}
+        <div className='bg-[url(./src/assets/Astronaut.png)] relative h-full max-w-[516px] w-full min-w-[200px] '>
+          <p className='absolute bottom-[73px] left-[28px] text-start text-white max-w-[466px] w-full opacity-70'>
+            “Two lunar months revealed Earth's fragile beauty against vast
+            silence, transforming my view of our place in the universe.
+          </p>
+
+          <p className='absolute bottom-[48px] left-[28px] text-start text-white max-w-[466px] w-full font-medium'>
+            Irinel Traista
+          </p>
         </div>
       </div>
       <DevTool control={control} />
