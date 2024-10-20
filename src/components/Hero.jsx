@@ -131,7 +131,7 @@ const Hero = () => {
         {/* Right Side */}
         <div
           className=' relative h-full max-w-[516px] w-full min-w-[200px]'
-          style={{ backgroundImage: `${Austonut}` }}
+          style={{ backgroundImage: `url(${Austonut})` }}
         >
           <p className='absolute bottom-[73px] left-[28px] text-start text-white max-w-[466px] w-full opacity-70'>
             “Two lunar months revealed Earth's fragile beauty against vast
